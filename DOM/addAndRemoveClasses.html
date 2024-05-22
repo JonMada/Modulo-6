@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Renmove Classes with JavaScript</title>
+
+    <style>
+
+        .encabezadoActivo {
+            color: firebrick;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        .encabezadoDesactivado {
+            color: cornflowerblue;
+            font-size: 4em;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id = "encabezadoPrincipal" class = "encabezadoActivo">
+        ¡Hola!
+    </div>
+
+
+</body>
+
+<script>
+
+    //Aqui crearemos el cambio dinámico de nuestro <div>
+        const encabezado = document.getElementById("encabezadoPrincipal");
+
+        encabezado.onclick = () => {
+            if(encabezado.classList.contains("encabezadoActivo")) {
+                encabezado.classList.remove("encabezadoActivo");
+                encabezado.classList.add("encabezadoDesactivado");
+            } else {
+                encabezado.classList.remove("encabezadoDesactivado");
+                encabezado.classList.add("encabezadoActivo");
+            }
+        };
+    
+</script>
+</html>
