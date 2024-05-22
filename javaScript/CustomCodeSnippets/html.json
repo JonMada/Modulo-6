@@ -1,0 +1,11 @@
+{
+	"Bullets" : {
+		"prefix": "bullets",
+		"body" : [
+			"<ul>",
+			"  <li>$1</li>",
+			"</ul>"
+		],
+		"description": "Añade una lista a un documento Html"
+	}
+}
