@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .hideElement {
+      visibility: hidden;
+    }
+
+    .showElement {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+
+    <div class = "widget showElement"> <!-- Hacemos un wrapper a nuestros <div> para aplicar el 'querySelector'-->
+
+        <div class="mainHeading showElement">
+        <h1>Hi there</h1>
+        </div>
+
+        <div class="subHeading showElement">
+        My Amazing subheading...
+        </div>
+
+    </div>
+
+    <!-- Añadimos un manejador de eventos, en este caso click en el siguiente botón, cuya función será ejecutada cada vez que lo pulsamos-->
+
+    <button onclick = "alternadorContenido()"> Alternar Contenido </button> 
+
+</body>
+
+<script>
+
+    //Seleccionamos nuestro div que contiene los headings con 'querySelector', nos devolverá el elemento
+
+    const widget = document.querySelector('.widget');
+
+    //Creamos la función que se ejecutará al pulsar nuestro botón, no hace falta bucle ya que nos lo devuelve como un único elemento
+
+    const alternadorContenido = () => {
+        if (widget.classList.contains('showElement')) {
+            widget.classList.remove('showElement');
+            widget.classList.add('hideElement');
+
+        } else {
+            widget.classList.remove('hideElement');
+            widget.classList.add('showElement');
+        }
+    }  
+
+
+</script>
+</html>
