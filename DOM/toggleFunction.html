@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+<body>
+
+  <button id="toggleBtn">Toggle Me</button>
+
+  <div id="mainHeading" class="hidden">
+    Hi there
+  </div>
+
+</body>
+
+<script>
+    const btn = document.getElementById("toggleBtn");
+    const heading = document.getElementById("mainHeading");
+
+    btn.addEventListener("click", (event) => {
+        heading.classList.toggle('hidden');
+    })
+
+</script>
+</html>
