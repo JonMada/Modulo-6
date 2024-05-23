@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclick vs addEventListener</title>
+</head>
+
+<body>
+    <div id = "Date"></div>
+    <!-- <button onclick="mostrarFecha()"> Pulsar botón</button> Integramos la función en nuestro botón mediante inline -->
+    <button id = "boton"> Pulsar aquí</button>
+    
+</body>
+
+<script>
+
+    // //Versión inline
+    // //Seleccionamos elemento en el que queramos que se muestre la fecha en el innerHTML (entre las etiquetas)
+    // const fecha = document.getElementById('Date');
+
+    // //Creamos la función
+    // const mostrarFecha = () => {
+    //     fecha.innerHTML = Date();
+    // }
+
+    // Versión addEventListener
+
+    const boton = document.getElementById('boton');
+    const date = document.getElementById('Date');
+
+    boton.addEventListener('click', (event) => {
+        date.innerHTML = Date();
+    });
+
+
+
+</script>
+</html>
