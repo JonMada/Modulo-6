@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .hideElement {
+      visibility: hidden;
+    }
+
+    .showElement {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+
+    <div class="mainHeading showElement">
+      <h1>Hi there</h1>
+    </div>
+
+    <div class="subHeading showElement">
+      My Amazing subheading...
+    </div>
+
+    <!-- Añadimos un manejador de eventos, en este caso click en el siguiente botón, cuya función será ejecutada cada vez que lo pulsamos-->
+
+    <button onclick = "alternadorContenido()"> Alternar Contenido </button> 
+
+</body>
+
+<script>
+    //Seleccionamos nuestros headings con 'querySelectorAll', nos devolverá una lista
+
+    const encabezados = document.querySelectorAll('div');
+
+    //Creamos la función que se ejecutará al pulsar nuestro botón, le aplicamos un bucle ya que queremos actuar sobre cada elemento de la lista
+
+    const alternadorContenido = () => {
+        encabezados.forEach((encabezado) => {
+            if (encabezado.classList.contains('showElement')) {
+                encabezado.classList.remove('showElement');
+                encabezado.classList.add('hideElement');
+
+            } else {
+                encabezado.classList.remove('hideElement');
+                encabezado.classList.add('showElement');
+            }
+        })    
+    }
+
+</script>
+</html>
