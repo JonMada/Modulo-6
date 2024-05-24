@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Contador de Caracteres</title>
+</head>
+<body>
+
+  <input type="text" class="msgInput" placeholder="Escribe aquí...">
+  <div>
+    Caracteres restantes: <span class="msgCounter">144</span>
+  </div>
+
+  <hr> <!--Nos proporciona un lindo espacio entre elementos-->
+
+  <input type="text" class="tagInput" placeholder="Escribe aquí...">
+  <div>
+    Caracteres restantes: <span class="tagCounter">20</span>
+  </div>
+
+</body>
+
+<script>
+  // Tomamos los elementos necesarios de nuestro DOM
+  const mensajeFormulario = document.querySelector('.msgInput');
+  const cuentaTotalForm = document.querySelector('.msgCounter');
+  const mensajeTag = document.querySelector('.tagInput');
+  const cuentaTotalTag = document.querySelector('.tagCounter');
+
+
+  // Creamos la función para tomar la longitud de nuestro contenido
+  const getCurrentContentLength = (content, max) => {
+    return content.length <= max;  //Devuelve true si se cumple y false si no se cumple
+  }
+    
+  //Imaginemos que queremos implementar esta carcterística en diferentes elementos de nuestra página. ¡Empaquetemos función!
+
+  const contadorDeCaracteres = (mensaje, cuentaTotal, maximo) => {
+    
+    mensaje.onkeyup = function() {
+        const remaining = maximo - this.value.length;
+        cuentaTotal.innerHTML = remaining;
+
+        if (!getCurrentContentLength(this.value, maximo - 1)) { //Invertimos el resultado de la función --> si devuelve false, nos devolverá true
+            mensaje.disabled = true;
+        }
+    }
+  }
+
+  //Probamos nuestra función
+  contadorDeCaracteres(mensajeFormulario,cuentaTotalForm,144);
+  contadorDeCaracteres(mensajeTag,cuentaTotalTag,20);
+
+</script>
+</html>
