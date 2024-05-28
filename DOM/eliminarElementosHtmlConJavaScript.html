@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<body>
+  <div class="widget">
+    <input type="text" id="chat-input">
+    <button id="msgBtn" onclick="mandarMensaje()">Submit</button> <!--Introducimos nuestro onclick para que se ejecute la función cuando se hace clic sobre el btn-->
+    <button onclick="eliminarMensajes()">Limpieza de mensajes</button> <!--Boton para la eliminación de elementos-->
+
+    <div class="chat-wrapper"></div>
+  </div>
+</body>
+
+<script>
+    function mandarMensaje () {
+        const newDiv = document.createElement('div'); //Aqui estamos creando nunestro nuevo div
+        newDiv.classList.add('chatMsg'); //Le añadadimos una class a nuestro nuevo div
+
+        //Seleccionamos nuestro elemento del DOM y el valor de este
+        let chatInput = document.querySelector('#chat-input').value;
+        
+        const newContent = document.createTextNode(chatInput);
+
+        newDiv.appendChild(newContent);
+        const widget = document.querySelector(".widget");
+        let chatWrapper = document.querySelector(".chat-wrapper");
+
+        //Cada vez que se pulsa el boton, la caja del input se vacia
+        document.querySelector('#chat-input').value = ''; 
+
+        //Esto hace que el orden de entrada de los elementos, permita que el ultimo en entrar se posicione el primero en la lista
+        if (document.querySelectorAll('.chatMsg').length > 0) {
+        chatWrapper = document.querySelectorAll('.chatMsg')[0];
+        }
+
+        
+        widget.insertBefore(newDiv, chatWrapper);
+  }
+
+  //Creamos la función para eliminar mensajes
+
+  function eliminarMensajes () {
+    const mensajes = document.querySelectorAll('.chatMsg');
+    mensajes.forEach(mensaje => mensaje.remove())
+  }
+
+
+    
+</script>
+
+</html>
